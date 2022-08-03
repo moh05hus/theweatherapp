@@ -2,31 +2,23 @@ package com.example.theweatherapp
 import android.os.AsyncTask
 import android.os.Bundle
 import android.view.View
-import android.widget.*
+import android.widget.ProgressBar
+import android.widget.RelativeLayout
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import org.json.JSONObject
 import java.net.URL
 import java.text.SimpleDateFormat
 import java.util.*
-
-
-
-
 class MainActivity : AppCompatActivity() {
-
-//------ mohammed hussain ------\\
-    var edAddress:EditText?= null
-    var searchBTN:Button?= null
-
-    var CITY: String = "Riyadh,SA"
+    //val CITY: String = "dhaka,bd"
+    val CITY: String = "Riyadh"
     val API: String = "5eae32ac3c55fab5411a76d81c09420d"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         weatherTask().execute()
-        searchButton()
     }
-    // When you open the application, the city is changed from here and the information on the screen changes \\
     inner class weatherTask() : AsyncTask<String, Void, String>() {
         override fun onPreExecute() {
             super.onPreExecute()
@@ -79,7 +71,7 @@ class MainActivity : AppCompatActivity() {
                 findViewById<TextView>(R.id.wind).text = windSpeed
                 findViewById<TextView>(R.id.pressure).text = pressure
                 findViewById<TextView>(R.id.humidity).text = humidity
-
+              
                 findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
                 findViewById<RelativeLayout>(R.id.mainContainer).visibility = View.VISIBLE
             } catch (e: Exception) {
@@ -87,18 +79,5 @@ class MainActivity : AppCompatActivity() {
                 findViewById<TextView>(R.id.errorText).visibility = View.VISIBLE
             }
         }
-    }
-    //When you type the name of the city and press the search button, the city will be changed from here \\
-    private fun searchButton(){
-        searchBTN=findViewById(R.id.searchBTN)
-        searchBTN?.setOnClickListener {
-            edAddress = findViewById<EditText?>(R.id.ed_address)
-            val addressFormEditText = edAddress?.text.toString()
-            Toast.makeText(this, "The location has changed to $addressFormEditText", Toast.LENGTH_SHORT).show()
-            CITY = addressFormEditText
-            weatherTask().execute()
-
-        }
-
     }
 }
