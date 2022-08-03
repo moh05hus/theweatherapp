@@ -88,6 +88,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+    // just for test
     //When you type the name of the city and press the search button, the city will be changed from here \\
     private fun searchButton(){
         searchBTN=findViewById(R.id.searchBTN)
