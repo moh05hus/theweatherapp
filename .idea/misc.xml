@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/alrya/AndroidStudioProjects/theweatherapp/app/src/main/res/drawable-v24/btn_backgrund.xml" value="0.187" />
         <entry key="..\:/Users/alrya/AndroidStudioProjects/theweatherapp/app/src/main/res/drawable/bg_gradient.xml" value="0.1305" />
-        <entry key="..\:/Users/alrya/AndroidStudioProjects/theweatherapp/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/alrya/AndroidStudioProjects/theweatherapp/app/src/main/res/drawable/btn_background.xml" value="0.187" />
+        <entry key="..\:/Users/alrya/AndroidStudioProjects/theweatherapp/app/src/main/res/layout/activity_main.xml" value="0.2" />
       </map>
     </option>
   </component>
