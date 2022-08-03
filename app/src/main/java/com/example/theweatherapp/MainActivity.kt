@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         override fun onPostExecute(result: String?) {
             super.onPostExecute(result)
             try {
-                /* Extracting JSON returns from the API */
+                // Extracting JSON returns from the API //
                 val jsonObj = JSONObject(result)
                 val main = jsonObj.getJSONObject("main")
                 val sys = jsonObj.getJSONObject("sys")
@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
                 val windSpeed = wind.getString("speed")
                 val weatherDescription = weather.getString("description")
                 val address = jsonObj.getString("name")+", "+sys.getString("country")
-                /* Populating extracted data into our views */
+                // Populating extracted data into our views //
                 findViewById<TextView>(R.id.address).text = address
                 findViewById<TextView>(R.id.updated_at).text =  updatedAtText
                 findViewById<TextView>(R.id.status).text = weatherDescription.capitalize()
@@ -94,7 +94,7 @@ class MainActivity : AppCompatActivity() {
         searchBTN=findViewById(R.id.searchBTN)
         searchBTN?.setOnClickListener {
             edAddress = findViewById<EditText?>(R.id.ed_address)
-            val addressFormEditText = edAddress?.text.toString()
+            val addressFormEditText = edAddress?.text.toString().trim()
             Toast.makeText(this, "The location has changed to $addressFormEditText", Toast.LENGTH_SHORT).show()
             CITY = addressFormEditText
             weatherTask().execute()
